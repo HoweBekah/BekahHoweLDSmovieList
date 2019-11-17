@@ -1,0 +1,71 @@
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Add Movie";
+}
+
+<h1>Add New Movie</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" required/>
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <select asp-for="Genre" class="form-control" required>
+                    <option selected disabled>Choose a Genre</option>
+                    <option>Comedy</option>
+                    <option>Drama</option>
+                    <option>Historical</option>
+                    <option>Action</option>
+                    <option>Romance</option>
+                    <option>Family</option>
+                    <option>History</option>
+                </select>
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" required />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" required />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMDBID" class="control-label">IMDB ID#</label>
+                <input asp-for="IMDBID" class="form-control" required />
+                <span asp-validation-for="IMDBID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<hr />
+<div id="clueID">
+    <p>The IMDB ID# can be found in the IMDB URL of the specific movie you are trying to add. For example:</p>
+    <img id="cluePic" src="~/images/imdbidclue.png" alt="Picture of a URL with part of it underlined" />
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

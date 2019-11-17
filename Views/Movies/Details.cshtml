@@ -1,0 +1,56 @@
+﻿@model MvcMovie.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
+    <hr />
+    <div id="details">
+        <dl id="detailWords" class="row">
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+        </dl>
+
+        <div class="col-md-6">
+            <div id="poster-container" data-imdb="@Html.DisplayFor(model => model.IMDBID)">
+                <img id="poster" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="detailsLinks">
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
